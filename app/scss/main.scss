@@ -29,6 +29,20 @@ h1 {
 	padding: 0 20px;
 }
 
+@keyframes topLineSlideUp {
+	0%{top: -100px;}
+	100%{top: 0;}
+}
+
+@keyframes topLineSlideDown {
+	0%{top: 0px;}
+	50%{top: -100px;}
+	100%{
+		position: relative;
+		top: 0px;
+	}
+}
+
 .header {
 	padding-top: 45px;
 	padding-bottom: 150px;
@@ -58,9 +72,39 @@ h1 {
 		color: #fff;
 	}
 
+	&__top-line.animation_backward {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		animation: topLineSlideDown .5s linear forwards;
+	}
+
+	&.animation_active {
+		.header__top-line {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+
+			animation: topLineSlideUp .5s linear forwards;
+		}
+	}
+
+	&__top-line-wrap {
+		height: 60px;
+		margin-bottom: 125px;
+	}
+
 	&__top-line {
+		position: relative;
+		top: 0;
+		left: 0;
 		
 		margin-bottom: 125px;
+		background: #87509c;
+		transition: .5s;
 
 		.container {
 			height: 60px;
