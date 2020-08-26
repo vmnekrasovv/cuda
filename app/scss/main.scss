@@ -79,6 +79,21 @@ h2 {
 		height: 4px;
 		margin: 20px auto;
 	}
+
+	@media screen and (max-width: 1140px) {
+		font-size: 34px;
+		line-height: 44px;
+	}
+
+	@media screen and (max-width: 990px) {
+		font-size: 27px;
+		line-height: 38px;
+	}
+
+	@media screen and (max-width: 767px) {
+	    font-size: 24px;
+	  	line-height: 32px;
+	}
 }
 
 .services  h2:after {background: #14a58c;}
@@ -94,8 +109,9 @@ h2 {
 	font-size: 18px;
 	line-height: 26px;
 	text-align: center;
-	margin-bottom: 75px;
+	margin: 0 auto 75px;
 	letter-spacing: .5px;
+	width: 580px;
 
 	&.white {
 		color: #ffffff;
@@ -103,6 +119,15 @@ h2 {
 
 	&.dark {
 		color: #3c4761;
+	}
+
+	@media screen and (max-width: 767px) {
+		width: 80%;
+	    font-size: 16px;
+	}
+
+	@media screen and (max-width: 575px) {
+		width: 90%;
 	}
 }
 
@@ -116,6 +141,14 @@ h2 {
 
 section {
 	padding: 115px 0;
+
+	@media screen and (max-width: 1140px) {
+		padding: 100px 0 ;
+	}
+
+	@media screen and (max-width: 767px) {
+		padding: 50px 0;
+	}
 }
 
 
@@ -275,6 +308,10 @@ section {
 	@media screen and (max-width: 1140px) {
 		margin-bottom: 115px;
 	}
+
+	@media screen and (max-width: 767px) {
+		margin-bottom: 50px;
+	}
 }
 
 /* --------- header__burger --------- */
@@ -330,10 +367,6 @@ section {
 
 @media screen and (max-width: 767px) {
 
-	.header__top-line-wrap {
-		margin-bottom: 50px;
-	}
-
 	.header__button {
 		width: 280px;
 		padding: 25px 75px;
@@ -387,15 +420,37 @@ section {
 .services {
 	background: #17c2a4;
 
+	@media screen and (max-width: 1140px) {
+		padding-bottom: 25px;
+	}
+
+	@media screen and (max-width: 767px) {
+		padding-bottom: 0px;
+	}
+
 	&__list {
 		display: flex;
 		justify-content: space-between;
+
+		@media screen and (max-width: 1140px) {
+			flex-wrap: wrap;
+		}
 	}
 
 	&__item {
 		width: 25%;
 		padding: 0 25px;
 		text-align: center;
+
+		@media screen and (max-width: 1140px) {
+			width: 50%;
+			margin-bottom: 75px;
+		}
+
+		@media screen and (max-width: 767px) {
+			width: 100%;
+			margin-bottom: 100px;
+		}
 	}
 
 	&__image {
@@ -423,6 +478,22 @@ section {
 		color: #fff;
 		width: 90%;
 		margin: 0 auto;
+
+		@media screen and (max-width: 1140px) {
+			width: 80%;
+		}
+
+		@media screen and (max-width: 767px) {
+			width: 60%;
+		}
+
+		@media screen and (max-width: 575px) {
+			width: 80%;
+		}
+
+		@media screen and (max-width: 375px) {
+			width: 100%;
+		}
 	}
 }
 
