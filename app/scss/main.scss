@@ -32,13 +32,92 @@ h1 {
 	text-align: center;
 	max-width: 990px;
 	margin: 0 auto 54px;
+
+	@media screen and (max-width: 1140px) {
+		font-size: 36px;
+		line-height: 46px;
+		max-width: 900px;
+	}
+
+	@media screen and (max-width: 990px) {
+		font-size: 29px;
+		line-height: 40px;
+		max-width: 80%;
+	}
+
+	@media screen and (max-width: 767px) {
+	    font-size: 26px;
+	  	line-height: 32px;
+	    margin-bottom: 50px;
+	    max-width: 100%;
+	}
 }
+
+h2 {
+	font-family: "tm_wbd";
+	font-size: 40px;
+	line-height: 30px;
+	letter-spacing: 3px;
+	text-align: center;
+
+	&.white {
+		color: #fff;
+	}
+
+	&.dark {
+		color: #393939;
+	}
+
+	&.dark-blue {
+		color: #3c4761;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		width: 90px;
+		height: 4px;
+		margin: 20px auto;
+	}
+}
+
+.services  h2:after {background: #14a58c;}
+.team      h2:after {background: #c8d9e5;}
+.skills    h2:after {background: #dfe8ed;}
+.portfolio h2:after {background: #e5c37f;}
+.about-us  h2:after {background: #b73c6d;}
+.contact   h2:after {background: #273a71;}
+
+
+.section__desc {
+	font-family: "tm_wbr";
+	font-size: 18px;
+	line-height: 26px;
+	text-align: center;
+	margin-bottom: 75px;
+	letter-spacing: .5px;
+
+	&.white {
+		color: #ffffff;
+	}
+
+	&.dark {
+		color: #3c4761;
+	}
+}
+
 
 .container {
 	max-width: 1140px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
+
+
+section {
+	padding: 115px 0;
+}
+
 
 @keyframes topLineSlideUp {
 	0%{top: -100px;}
@@ -59,6 +138,22 @@ h1 {
 	padding-bottom: 150px;
 	background: #87509c;
 	transition: .5s;
+
+	@media screen and (max-width: 1140px) {
+		padding-top: 20px;
+		padding-bottom: 125px;
+	}
+
+	@media screen and (max-width: 767px) {
+		padding-bottom: 75px;
+		padding-top: 0px;
+	    background: #87509c;
+	}
+
+	@media screen and (max-width: 375px) {
+		padding-bottom: 50px;
+	}
+
 }
 
 .header__top-line {
@@ -79,8 +174,6 @@ h1 {
 	}
 }
 
-
-
 .header__top-line:before {
 	content: '';
 	position: absolute;
@@ -90,9 +183,7 @@ h1 {
 	height: 100%;
 	z-index: 1;
 	background-color: #87509c;
-}
-
-		
+}		
 
 .header__menu {
 
@@ -180,6 +271,10 @@ h1 {
 .header__top-line-wrap {
 	height: 60px;
 	margin-bottom: 125px;
+
+	@media screen and (max-width: 1140px) {
+		margin-bottom: 115px;
+	}
 }
 
 /* --------- header__burger --------- */
@@ -233,46 +328,7 @@ h1 {
 }
 
 
-@media screen and (max-width: 1140px) {
-	
-	h1 {
-		font-size: 36px;
-		line-height: 46px;
-		max-width: 900px;
-	}
-
-	.header {
-		padding-top: 20px;
-		padding-bottom: 125px;
-	}
-
-	.header__top-line-wrap {
-		margin-bottom: 115px;
-	}
-}
-
-@media screen and (max-width: 990px) {
-	h1 {
-		font-size: 29px;
-		line-height: 40px;
-		max-width: 80%;
-	}
-}
-
 @media screen and (max-width: 767px) {
-
-	h1 {
-	    font-size: 26px;
-	  	line-height: 32px;
-	    margin-bottom: 50px;
-	    max-width: 100%;
-	}
-
-	.header {
-		padding-bottom: 75px;
-		padding-top: 0px;
-	    background: #87509c;
-	}
 
 	.header__top-line-wrap {
 		margin-bottom: 50px;
@@ -325,37 +381,84 @@ h1 {
 
 }
 
-@media screen and (max-width: 375px) {
-	.header {
-		padding-bottom: 50px;
-	}
-}
 
 /* --------- services --------- */
 
 .services {
 	background: #17c2a4;
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		width: 25%;
+		padding: 0 25px;
+		text-align: center;
+	}
+
+	&__image {
+		height: 134px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 62px;
+	}
+
+	&__heading {
+		font-family: "tm_wbd";
+		font-size: 24px;
+		line-height: 18px;
+		color: #fff;
+		margin-bottom: 25px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	&__desc {
+		font-family: "tm_wbl";
+		font-size: 16px;
+		line-height: 24px;
+		color: #fff;
+		width: 90%;
+		margin: 0 auto;
+	}
 }
+
+
+/* --------- team --------- */
 
 .team {
 	background: #e7f1f8;
 }
 
+
+/* --------- skills --------- */
+
 .skills {
 	background: #ffffff;
 }
+
+/* --------- portfolio --------- */
 
 .portfolio {
 	background: #ffdd99;
 }
 
+/* --------- about-us --------- */
+
 .about-us {
 	background: #d74680;
 }
 
+/* --------- contact --------- */
+
 .contact {
 	background: #3c5499;
 }
+
+/* --------- footer --------- */
 
 .footer {
 	background: #344b8e;
