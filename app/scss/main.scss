@@ -33,21 +33,21 @@ h1 {
 	max-width: 990px;
 	margin: 0 auto 54px;
 
+
+	@media screen and (max-width: 1440px) {
+		font-size: calc(26px + (42 - 26) * (100vw - 320px) / (1440 - 320));
+		line-height: calc(32px + (46 - 32) * (100vw - 320px) / (1440 - 320)); 
+	}
+
 	@media screen and (max-width: 1140px) {
-		font-size: 36px;
-		line-height: 46px;
 		max-width: 900px;
 	}
 
 	@media screen and (max-width: 990px) {
-		font-size: 29px;
-		line-height: 40px;
 		max-width: 80%;
 	}
 
 	@media screen and (max-width: 767px) {
-	    font-size: 26px;
-	  	line-height: 32px;
 	    margin-bottom: 50px;
 	    max-width: 100%;
 	}
@@ -55,7 +55,7 @@ h1 {
 
 h2 {
 	font-family: "tm_wbd";
-	font-size: 40px;
+	font-size: 42px;
 	line-height: 30px;
 	letter-spacing: 3px;
 	text-align: center;
@@ -77,22 +77,12 @@ h2 {
 		display: block;
 		width: 90px;
 		height: 4px;
-		margin: 20px auto;
+		margin: 20px auto 20px;
 	}
 
-	@media screen and (max-width: 1140px) {
-		font-size: 34px;
-		line-height: 44px;
-	}
-
-	@media screen and (max-width: 990px) {
-		font-size: 27px;
-		line-height: 38px;
-	}
-
-	@media screen and (max-width: 767px) {
-	    font-size: 24px;
-	  	line-height: 32px;
+	@media screen and (max-width: 1440px) {
+		font-size: calc(24px + (42 - 24) * (100vw - 320px) / (1440 - 320));
+		line-height: calc(32px + (44 - 32) * (100vw - 320px) / (1440 - 320));
 	}
 }
 
@@ -165,6 +155,9 @@ section {
 		top: 0px;
 	}
 }
+
+
+/* --------- header --------- */
 
 .header {
 	padding-top: 45px;
@@ -449,7 +442,6 @@ section {
 
 		@media screen and (max-width: 767px) {
 			width: 100%;
-			margin-bottom: 100px;
 		}
 	}
 
@@ -458,7 +450,11 @@ section {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 62px;
+		margin-bottom: 58px;
+
+		@media screen and (max-width: 767px) {
+			margin-bottom: 45px;
+		}
 	}
 
 	&__heading {
@@ -466,7 +462,7 @@ section {
 		font-size: 24px;
 		line-height: 18px;
 		color: #fff;
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 	}
@@ -502,6 +498,93 @@ section {
 
 .team {
 	background: #e7f1f8;
+
+	.section__desc {
+		@media screen and (min-width: 1140px) {
+			width: 100%;
+		}
+	}	
+
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__item {
+		width: 25%;
+		margin-left: 20px;
+	}
+
+	&__image {
+		width: 200px;
+		height: 200px;
+		border-radius: 50%;
+		overflow: hidden;
+		background: #878787;
+		margin: 0 auto 40px;
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__name {
+		font-family: "tm_wbd";
+		font-size: 24px;
+		line-height: 18px;
+		text-transform: uppercase;
+		color: #27283d;
+		margin-bottom: 12px;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__post {
+		font-family: "tm_wbr";
+		font-size: 16px;
+		line-height: 18px;
+		color: #30bae7;
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__desc {
+		font-family: "tm_wbl";
+		font-size: 16px;
+		line-height: 24px;
+		color: #3c4761;
+		width: 75%;
+		margin: 0 auto 30px;
+		text-align: center;
+	}
+
+	&__social-list {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__social-item {
+		display: block;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		margin: 0 5px;
+
+		&.fb {background-image: url('../images/dest/social/fb.png');}
+		&.twitter {background-image: url('../images/dest/social/twitter.png');}
+		&.linked {background-image: url('../images/dest/social/linked.png');}
+		&.mail {background-image: url('../images/dest/social/mail.png');}
+
+		background-position: center;
+		background-repeat: no-repeat;
+
+		background-color: #bdd1df;
+
+	}
+
 }
 
 
