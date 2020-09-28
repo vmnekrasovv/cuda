@@ -1,5 +1,7 @@
 @import "config";
 
+@import "circle_fill";
+
 *, *:before, *:after {
 	padding: 0;
 	margin: 0;
@@ -25,7 +27,7 @@ body.lock {
 }
 
 h1 {
-	font-family: "tm_wbd";
+	font-family: "tm_wbb";
 	font-size: 42px;
 	line-height: 48px;
 	color: #fff;
@@ -54,7 +56,7 @@ h1 {
 }
 
 h2 {
-	font-family: "tm_wbd";
+	font-family: "tm_wbb";
 	font-size: 42px;
 	line-height: 30px;
 	letter-spacing: 3px;
@@ -157,6 +159,22 @@ section {
 }
 
 
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 290px;
+	height: 68px;
+	border-radius: 5px;
+	margin: 0 auto;
+	font-family: "tm_wbsb";
+	font-size: 18px;
+	line-height: 26px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+}
+
 /* --------- header --------- */
 
 .header {
@@ -180,36 +198,35 @@ section {
 		padding-bottom: 50px;
 	}
 
-}
-
-.header__top-line {
-	position: relative;
-	height: 60px;
-	width: 100%;
-	top: 0;
-	left: 0;
-
-	transition: .5s;
-
-	.container {
+	&__top-line {
+		position: relative;
 		height: 60px;
-		padding: 10px 20px;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		width: 100%;
+		top: 0;
+		left: 0;
+
+		transition: .5s;
+
+		.container {
+			height: 60px;
+			padding: 10px 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1;
+			background-color: #87509c;
+		}		
 	}
 }
-
-.header__top-line:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
-	background-color: #87509c;
-}		
 
 .header__menu {
 
@@ -263,23 +280,8 @@ section {
 }
 
 .header__button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 290px;
-	height: 68px;
-	border-radius: 5px;
 	border-bottom: 4px solid #c86a40;
-	margin: 0 auto;
-	padding: 25px 80px;
 	background: #eb7d4b;
-
-	font-family: "tm_wbsb";
-	font-size: 18px;
-	line-height: 26px;
-	text-decoration: none;
-	text-transform: uppercase;
-	color: #fff;
 }
 
 .header__top-line.animation_backward {
@@ -450,7 +452,7 @@ section {
 	}
 
 	&__heading {
-		font-family: "tm_wbd";
+		font-family: "tm_wbb";
 		font-size: 24px;
 		line-height: 18px;
 		color: #fff;
@@ -539,7 +541,7 @@ section {
 	}
 
 	&__name {
-		font-family: "tm_wbd";
+		font-family: "tm_wbb";
 		font-size: 24px;
 		line-height: 18px;
 		text-transform: uppercase;
@@ -601,12 +603,170 @@ section {
 
 .skills {
 	background: #ffffff;
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+
+		@media screen and (max-width: 990px) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&__item {
+		width: 25%;
+		margin-left: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		@media screen and (max-width: 990px) {
+			width: 50%;
+			margin-left: 0px;
+			margin-bottom: 75px;
+		}
+
+		@media screen and (max-width: 500px) {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		width: 160px;
+		height: 160px;
+		border-radius: 50%;
+		border: 12px solid #ccc;
+		margin-bottom: 30px;
+		
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-family: "tm_wbl";
+		font-size: 50px;
+		line-height: 20px;
+		color: #3c4761;
+
+		span {
+			font-size: 32px;
+		}
+
+		&.blue {
+			border: 12px solid #30bae7;}
+
+		&.pink {
+			border: 12px solid #d74680;}
+
+		&.green {
+			border: 12px solid #15c7a8;}
+
+		&.yellow {
+			border: 12px solid #eb7d4b;}
+	}
+
+	&__heading {
+		font-family: "tm_wbb";
+		font-size: 24px;
+		line-height: 18px;
+		color: #3c4761;
+		text-transform: uppercase;
+
+	}
 }
 
 /* --------- portfolio --------- */
 
 .portfolio {
 	background: #ffdd99;
+
+	.section__desc {
+		margin-bottom: 40px;
+	}
+
+	&__tabs {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 60px;
+	}
+
+	&__tab {
+		width: 86px;
+		height: 36px;
+		margin: 0 5px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 4px;
+		background: rgba(0,0,0,.08);
+		font-size: 18px;
+		line-height: 20px;
+		font-family: "tm_wbel";
+		font-weight: 600;
+		text-transform: uppercase;
+
+		&.active {
+			background: #fff;
+		}
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-bottom: 30px;
+	}
+
+	&__item {
+		width: 541px;
+		margin-bottom: 60px;
+
+		@media screen and (max-width: 1140px) {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		height: 311px;
+		padding-top: 16px;
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: center;
+		background: url('../images/dest/portfolio/notebook.png') no-repeat;
+
+		@media screen and (max-width: 1140px) {
+			background-position-x: center;
+		}
+
+		@media screen and (max-width: 375px) {
+			background-size: contain;
+		}
+	
+		img {
+			width: 410px;
+			height: 256px;
+		}
+	}
+
+	&__heading {
+		font-size: 18px;
+		line-height: 18px;
+		font-family: 'tm_wbel';
+		font-weight: 600;
+		text-align: center;
+		text-transform: uppercase;
+		color: #393939;
+	}
+
+	&__button {
+		border-bottom: 4px solid #14a58c;
+		background: #17c2a4;
+	}
 }
 
 /* --------- about-us --------- */

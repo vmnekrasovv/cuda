@@ -1,0 +1,89 @@
+body {
+  background: #222;
+}
+
+.wrapper {
+  position: relative;
+  margin: -125px 0 0 -125px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/*На фон засувуете еще один круг с серым и накрытваете свехру белым*/
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 15px solid #eee;
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-family: "Arial";
+  font-weight: bold;
+}
+
+@mixin timer($item, $duration, $size, $color, $border) {
+
+  #{$item}, #{$item} * { box-sizing: border-box; }
+
+  #{$item} { 
+    width: $size;
+    height: $size;
+  }
+
+  #{$item} .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%; // точка крепления, справа по центру
+    position: absolute;
+    background: $color;
+    border: #{$border};
+  }
+
+  #{$item} .spinner {
+    border-radius: 100% 0 0 100% / 50% 0 0 50%; // эллиптическое скругление
+    z-index: 200;
+    border-right: none; // убирает диагональную разделяющую полосу
+    animation: rota $duration + s linear forwards;
+  }
+
+  #{$item} .filler {
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0; 
+    left: 50%;
+    opacity: 0;
+    z-index: 100;
+    animation: opa $duration + s steps(1,end) forwards reverse;
+    border-left: none;
+  }
+
+  #{$item} .mask {
+    width: 50%;
+    height: 100%;
+    border: 15px solid #eee;
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    border-right: none;
+    position: absolute;
+    opacity: 1;
+    z-index: 300;
+    animation: opa .6s steps(1,end) forwards;
+  }
+
+  @keyframes rota {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(324deg); }
+
+  }
+
+  @keyframes opa {
+    0% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+}
+
+@include timer('.wrapper', .5, 250px, transparent, '15px solid #abc');
