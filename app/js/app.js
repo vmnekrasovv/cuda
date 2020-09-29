@@ -1,15 +1,51 @@
 (function($){
 	$(document).ready(function(){
 		
+
+	/* Динамическое изменение высоты изображения в секции portfolio, при ширине экрана < 600px */	
+		
+		$(function() {
+		    $(window).on('load resize', function() {
+		        var window_width = $(window).width();
+
+		        var 
+		      		pf_image = $('.portfolio__image'),
+		      		basic_pf_image_padding = 16, 
+		        	basic_pf_image_height  = 311;
+
+		        if(window_width < 600) {
+		        	console.log('ww < 600 ' + window_width);
+		        	 var 
+			        	pf_image_width   = pf_image.width(),
+			        	pf_image_height  = (pf_image_width / 100) * 57.4, // Знаем, что соотношение сторон подложки = w: 42.6%; h: 57.4%;
+			        	pf_image_padding = (pf_image_height / 100) * 5;   // Знаем, что отступ сверху равен 5% от высоты подложки 
+
+			        pf_image.height(pf_image_height);
+			        pf_image.css({'padding-top': pf_image_padding});
+		        } else {
+		        	console.log('ww > 600');
+
+		        	pf_image.height(basic_pf_image_height - basic_pf_image_padding); // Прибавляет к базовой высоте, высоту паддинга, игнорируя свойство box-sizing, по-этому, вычитаем паддинг.
+		        	pf_image.css({'padding-top': basic_pf_image_padding});
+		        }
+		       
+		    });
+		});
+
+	/* ----------------------------------------------------------------------------------------- */
+
+
+	/* Burger menu */
+
 		function burgerMenu(){
-			$('.header__burger').click(function(){
-				$('.header__burger, .header__menu').toggleClass('active');
+			$('.burger').click(function(){
+				$('.burger, .header__menu').toggleClass('active');
 				$('body').toggleClass('lock');
 
 			});
 
 			$('.header__menu').click(function(eventObject){
-				$('.header__burger, .header__menu').removeClass('active');
+				$('.burger, .header__menu').removeClass('active');
 				$('body').removeClass('lock');
 				
 				/*if(!$(eventObject.target).hasClass('active')){
@@ -23,7 +59,11 @@
 
 		burgerMenu();
 
-		
+	/* ----------------------------------------------------------------------------------------- */
+
+	
+	/* Анимация для вернхнего меню, при скролле страницы */
+
 		function scrollAnimation(){
 			const animateTrigger = $('.header');
 			const animateTriggerHeight = animateTrigger.outerHeight(true);
@@ -64,6 +104,8 @@
 		$('.header__menu-list').children('a').click(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 		});
+
+	/* ----------------------------------------------------------------------------------------- */
 
 	});
 })(jQuery);

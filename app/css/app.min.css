@@ -349,8 +349,7 @@ section {
   color: #fff; }
   @media screen and (max-width: 767px) {
     .button {
-      width: 280px;
-      padding: 25px 75px; } }
+      width: 280px; } }
 
 /* --------- header --------- */
 .header {
@@ -856,12 +855,17 @@ section {
     @media screen and (max-width: 1140px) {
       .portfolio__image {
         background-position-x: center; } }
-    @media screen and (max-width: 375px) {
+    @media screen and (max-width: 600px) {
       .portfolio__image {
-        background-size: contain; } }
+        background-size: contain;
+        margin-bottom: 4%; } }
     .portfolio__image img {
       width: 410px;
       height: 256px; }
+      @media screen and (max-width: 600px) {
+        .portfolio__image img {
+          width: 76%;
+          height: 82%; } }
   .portfolio__heading {
     font-size: 18px;
     line-height: 18px;
@@ -870,6 +874,9 @@ section {
     text-align: center;
     text-transform: uppercase;
     color: #393939; }
+    @media screen and (max-width: 400px) {
+      .portfolio__heading {
+        font-size: 16px; } }
   .portfolio__button {
     border-bottom: 4px solid #14a58c;
     background: #17c2a4; }
