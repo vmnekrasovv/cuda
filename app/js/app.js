@@ -2,6 +2,14 @@
 	$(document).ready(function(){
 		
 
+	function pfTabs(){
+		$('.portfolio__tab').click(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+		});
+	}
+
+	pfTabs();
+
 	/* Динамическое изменение высоты изображения в секции portfolio, при ширине экрана < 600px */	
 		
 		$(function() {
