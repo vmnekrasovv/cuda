@@ -199,6 +199,9 @@ body.lock {
     body.lock {
       overflow: auto; } }
 
+textarea {
+  font-family: 'tm_wbr'; }
+
 h1 {
   font-family: "tm_wbb";
   font-size: 42px;
@@ -263,27 +266,26 @@ h2 {
 .contact h2:after {
   background: #273a71; }
 
-.section__desc {
+.section-desc {
   font-family: "tm_wbr";
   font-size: 18px;
   line-height: 26px;
   text-align: center;
   margin: 0 auto 75px;
-  letter-spacing: .5px;
-  width: 580px; }
+  letter-spacing: .5px; }
   @media screen and (max-width: 376px) {
-    .section__desc {
+    .section-desc {
       margin: 0 auto 50px; } }
-  .section__desc.white {
+  .section-desc.white {
     color: #ffffff; }
-  .section__desc.dark {
+  .section-desc.dark {
     color: #3c4761; }
   @media screen and (max-width: 767px) {
-    .section__desc {
+    .section-desc {
       width: 80%;
       font-size: 16px; } }
   @media screen and (max-width: 575px) {
-    .section__desc {
+    .section-desc {
       width: 90%; } }
 
 .container {
@@ -545,6 +547,9 @@ section {
 /* --------- services --------- */
 .services {
   background: #17c2a4; }
+  .services .section-desc {
+    max-width: 610px;
+    margin-bottom: 75px; }
   .services__list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -613,9 +618,11 @@ section {
 /* --------- team --------- */
 .team {
   background: #e7f1f8; }
-  @media screen and (min-width: 700px) {
-    .team .section__desc {
-      width: 100%; } }
+  .team .section-desc {
+    margin-bottom: 80px; }
+    @media screen and (min-width: 700px) {
+      .team .section-desc {
+        width: 100%; } }
   .team__list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -719,6 +726,9 @@ section {
 /* --------- skills --------- */
 .skills {
   background: #ffffff; }
+  .skills .section-desc {
+    max-width: 580px;
+    margin-bottom: 80px; }
   .skills__list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -795,7 +805,8 @@ section {
 /* --------- portfolio --------- */
 .portfolio {
   background: #ffdd99; }
-  .portfolio .section__desc {
+  .portfolio .section-desc {
+    max-width: 530px;
     margin-bottom: 40px; }
   .portfolio__tabs {
     display: -webkit-box;
@@ -889,6 +900,8 @@ section {
 /* --------- about-us --------- */
 .about-us {
   background: #d74680; }
+  .about-us .section-desc {
+    margin-bottom: 64px; }
   .about-us__list {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -995,6 +1008,40 @@ section {
 /* --------- contact --------- */
 .contact {
   background: #3c5499; }
+  .contact .section-desc {
+    margin-bottom: 70px; }
+  .contact__form {
+    max-width: 860px;
+    margin: 0 auto 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .contact__input {
+    width: 48%;
+    height: 54px;
+    padding: 20px;
+    margin-bottom: 24px;
+    background: #273a71;
+    border-radius: 4px;
+    font-family: 'tm_wbr';
+    font-size: 18px;
+    color: #fff;
+    border: 3px solid transparent; }
+    .contact__input:focus {
+      border: 3px solid #192b5d; }
+    .contact__input_textarea {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 0;
+      resize: none; }
+  .contact__button {
+    border-bottom: 4px solid #299ec5;
+    background: #30bae7; }
 
 /* --------- footer --------- */
 .footer {
