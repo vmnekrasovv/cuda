@@ -180,6 +180,7 @@ section {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #fff;
+	cursor: pointer;
 
 	@media screen and (max-width: 767px) {
 		width: 280px;
@@ -351,6 +352,7 @@ section {
 	&.animation_active {
 		.header__top-line {
 			position: fixed;
+			z-index: 10;
 			animation: topLineSlideUp .5s linear forwards;
 		}
 	}
@@ -936,10 +938,62 @@ section {
 
 	&__form {
 		max-width: 860px;
-		margin: 0 auto 60px;
+		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(60,84,153,.9);
+			z-index: 1;
+			opacity: 0;
+			visibility: hidden;
+			transition: all .5s ease 0s;
+		}
+
+		&::after {
+			content: " ";
+			display: block;
+			width: 64px;
+			height: 64px;
+			margin: 8px;
+			border-radius: 50%;
+			border: 6px solid #94d86f;
+			border-color: #94d86f transparent #94d86f transparent;
+			animation: lds-dual-ring 1.2s linear infinite;
+			position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    z-index: 1;
+		    margin-top: -32px;
+		    margin-left: -32px;
+		    opacity: 0;
+		    visibility: hidden;
+		}
+
+		@keyframes lds-dual-ring {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		&._sending::before,
+		&._sending::after {
+			opacity: 1;
+			visibility: visible;
+		}
+
+
 	}
 
 	&__input {
@@ -953,9 +1007,14 @@ section {
 		font-size: 18px;
 		color: #fff;
 		border: 3px solid transparent;
+		transition: all .3s ease 0s;
 
 		&:focus {
 			border: 3px solid #192b5d;
+		}
+
+		&._error {
+			border: 3px solid #f00;
 		}
 
 		&_textarea {
@@ -963,6 +1022,7 @@ section {
 			height: 200px;
 			margin-bottom: 0;
 			resize: none;
+			margin-bottom: 60px;
 		}
 	}
 
