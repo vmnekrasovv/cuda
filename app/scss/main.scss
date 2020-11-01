@@ -1036,4 +1036,26 @@ section {
 
 .footer {
 	background: #344b8e;
+
+	&__list {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__item {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 40px 30px;
+		font-family: 'tm_wbsb';
+		font-size: 24px;
+		line-height: 30px;
+		color: #fff;
+		text-decoration: none;
+		transition: color .5s ease 0s;
+
+		&:hover {
+			color: #30bae7;
+		}
+	}
 }

@@ -1107,3 +1107,31 @@ section {
 /* --------- footer --------- */
 .footer {
   background: #344b8e; }
+  .footer__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .footer__item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 40px 30px;
+    font-family: 'tm_wbsb';
+    font-size: 24px;
+    line-height: 30px;
+    color: #fff;
+    text-decoration: none;
+    -webkit-transition: color .5s ease 0s;
+    -o-transition: color .5s ease 0s;
+    transition: color .5s ease 0s; }
+    .footer__item:hover {
+      color: #30bae7; }
