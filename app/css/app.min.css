@@ -1,74 +1,44 @@
 @font-face {
-  font-family: "damion_rg";
-  font-style: normal;
-  font-weight: 400;
-  src: local("damion_rg"), url("../fonts/damion/damion-regular-webfont.woff2") format("woff2"); }
-
-@font-face {
   font-family: "tm_wbel";
   font-style: normal;
   font-weight: 200;
-  src: local("tm_wbel"), url("../fonts/titillium/titilliumweb-extralight-webfont.woff2") format("woff2"); }
+  src: local("tm_wbel"), url("../fonts/titillium/titilliumweb-extralight-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 @font-face {
   font-family: "tm_wbl";
   font-style: normal;
   font-weight: 300;
-  src: local("tm_wbl"), url("../fonts/titillium/titilliumweb-light-webfont.woff2") format("woff2"); }
+  src: local("tm_wbl"), url("../fonts/titillium/titilliumweb-light-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 @font-face {
   font-family: "tm_wbr";
   font-style: normal;
   font-weight: 400;
-  src: local("tm_wbr"), url("../fonts/titillium/titilliumweb-regular-webfont.woff2") format("woff2"); }
+  src: local("tm_wbr"), url("../fonts/titillium/titilliumweb-regular-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 @font-face {
   font-family: "tm_wbsb";
   font-style: normal;
   font-weight: 600;
-  src: local("tm_wbsb"), url("../fonts/titillium/titilliumweb-semibold-webfont.woff2") format("woff2"); }
+  src: local("tm_wbsb"), url("../fonts/titillium/titilliumweb-semibold-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 @font-face {
   font-family: "tm_wbb";
   font-style: normal;
   font-weight: 700;
-  src: local("tm_wbb"), url("../fonts/titillium/titilliumweb-bold-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "tm_wbk";
-  font-style: normal;
-  font-weight: 900;
-  src: local("tm_wbk"), url("../fonts/titillium/titilliumweb-black-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "tm_wbel_i";
-  font-style: italic;
-  font-weight: 200;
-  src: local("tm_wbel_i"), url("../fonts/titillium/titilliumweb-extralightitalic-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "tm_wbl_i";
-  font-style: italic;
-  font-weight: 300;
-  src: local("tm_wbl_i"), url("../fonts/titillium/titilliumweb-lightitalic-webfont.woff2") format("woff2"); }
+  src: local("tm_wbb"), url("../fonts/titillium/titilliumweb-bold-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 @font-face {
   font-family: "tm_wb_i";
   font-style: italic;
   font-weight: 400;
-  src: local("tm_wb_i"), url("../fonts/titillium/titilliumweb-italic-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "tm_wbsb_i";
-  font-style: italic;
-  font-weight: 600;
-  src: local("tm_wbsb_i"), url("../fonts/titillium/titilliumweb-semibolditalic-webfont.woff2") format("woff2"); }
-
-@font-face {
-  font-family: "tm_wbb_i";
-  font-style: italic;
-  font-weight: 700;
-  src: local("tm_wbb_i"), url("../fonts/titillium/titilliumweb-bolditalic-webfont.woff2") format("woff2"); }
+  src: local("tm_wb_i"), url("../fonts/titillium/titilliumweb-italic-webfont.woff2") format("woff2");
+  font-display: swap; }
 
 *, *::before, *::after {
   padding: 0;
