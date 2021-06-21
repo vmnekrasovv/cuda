@@ -23,7 +23,8 @@
 
 		        if(window_width < 600) {
 		        	console.log('ww < 600 ' + window_width);
-		        	 var 
+
+		        	var 
 			        	pf_image_width   = pf_image.width(),
 			        	pf_image_height  = (pf_image_width / 100) * 57.4, // Знаем, что соотношение сторон подложки = w: 42.6%; h: 57.4%;
 			        	pf_image_padding = (pf_image_height / 100) * 5;   // Знаем, что отступ сверху равен 5% от высоты подложки 
@@ -99,7 +100,7 @@
 			 		scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 			 		scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 			 	return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-			 }
+			}
 
 			setTimeout(() => {
 			 	animateOnScroll();

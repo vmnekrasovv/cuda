@@ -11,6 +11,7 @@ let paths = {
 	scripts: {
 		src: [
 			'node_modules/jquery/dist/jquery.min.js', // npm vendor example (npm i --save-dev jquery)
+      /*baseDir + '/js/burger.js',*/
 			baseDir + '/js/app.js' // app.js. Always at the end
 		],
 		dest: baseDir + '/js',
@@ -24,6 +25,7 @@ let paths = {
 	images: {
 		src:  baseDir + '/images/src/**/*',
 		dest: baseDir + '/images/dest',
+		adaptive: baseDir + '/images/dest/adaptive',
 	},
 
 	cssOutputName: 'app.min.css',
@@ -31,9 +33,11 @@ let paths = {
 
 }
 
+
+
 // LOGIC
 
-const { src, dest, parallel, series, watch } = require('gulp');
+const { src, dest, parallel, series, watch} = require('gulp');
 const scss         = require('gulp-sass');
 const cleancss     = require('gulp-clean-css');
 const concat       = require('gulp-concat');
@@ -41,9 +45,11 @@ const browserSync  = require('browser-sync').create();
 const uglify       = require('gulp-uglify-es').default;
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin     = require('gulp-imagemin');
+
 const newer        = require('gulp-newer');
 const rsync        = require('gulp-rsync');
 const del          = require('del');
+const responsive   = require('gulp-responsive');
 
 function browsersync() {
 	browserSync.init({
@@ -78,6 +84,54 @@ function images() {
 	.pipe(dest(paths.images.dest))
 }
 
+function respImg() {
+	return src('app/images/dest/**/*.jpg')
+	.pipe(responsive(
+        {
+          // Resize all JPG images to three different sizes: 200, 500, and 630 pixels
+          '**/*.jpg': [
+            {
+              width: 200,
+              rename: { suffix: '-200px' }
+            },
+            {
+              width: 500,
+              rename: { suffix: '-500px' }
+            },
+            {
+              width: 630,
+              rename: { suffix: '-630px' }
+            },
+            {
+              // Compress, strip metadata, and rename original image
+              rename: { suffix: '-original' }
+            }
+          ],
+          // Resize all PNG images to be retina ready
+          '**/*.png': [
+            {
+              width: 250
+            },
+            {
+              width: 250 * 2,
+              rename: { suffix: '@2x' }
+            }
+          ]
+        },
+        {
+          // Global configuration for all images
+          // The output quality for JPEG, WebP and TIFF output formats
+          quality: 70,
+          // Use progressive (interlace) scan for JPEG and PNG output
+          progressive: true,
+          // Strip all metadata
+          withMetadata: false
+        }
+      )
+    )
+    .pipe(dest(paths.images.adaptive))
+}
+
 function cleanimg() {
 	return del('' + paths.images.dest + '/**/*', { force: true })
 }
@@ -96,4 +150,5 @@ exports.styles      = styles;
 exports.scripts     = scripts;
 exports.images      = images;
 exports.cleanimg    = cleanimg;
+exports.respImg     = respImg;
 exports.default     = parallel(images, styles, scripts, browsersync, startwatch);

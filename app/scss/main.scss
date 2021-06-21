@@ -1,8 +1,8 @@
 @import "config";
 
-@import "circle_fill";
+//@import "circle_fill";
 
-*, *:before, *:after {
+*, *::before, *::after {
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -10,6 +10,17 @@
 	user-select: none;
 	box-sizing: border-box;
 
+}
+
+@keyframes rota {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes translate {
+	0% { transform: translate3d(0px, 0px, 0px);}
+	50% { transform: translate3d(0px, -200px, 0px) rotate(-220deg);}	
+	100% { transform: translate3d(0px, 0px, 0px) rotate(-180deg);}	
 }
 
 html, body {
@@ -458,6 +469,15 @@ section {
 		@media screen and (max-width: 767px) {
 			margin-bottom: 45px;
 		}
+
+		&--dev:hover {
+			animation: rota 10s infinite;
+		}
+
+		&--rocket:hover {
+			animation: translate 3s infinite alternate;
+		}
+
 	}
 
 	&__heading {
