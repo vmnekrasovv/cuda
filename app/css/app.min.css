@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @font-face {
   font-family: "damion_rg";
   font-style: normal;
@@ -71,112 +70,7 @@
   font-weight: 700;
   src: local("tm_wbb_i"), url("../fonts/titillium/titilliumweb-bolditalic-webfont.woff2") format("woff2"); }
 
-body {
-  background: #222; }
-
-.wrapper {
-  position: relative;
-  margin: -125px 0 0 -125px;
-  position: absolute;
-  top: 50%;
-  left: 50%; }
-
-/*На фон засувуете еще один круг с серым и накрытваете свехру белым*/
-.circle {
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  border: 15px solid #eee;
-  background: #fff;
-  position: absolute;
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 40px;
-  font-family: "Arial";
-  font-weight: bold; }
-
-.wrapper, .wrapper * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
-
-.wrapper {
-  width: 250px;
-  height: 250px; }
-
-.wrapper .pie {
-  width: 50%;
-  height: 100%;
-  -webkit-transform-origin: 100% 50%;
-      -ms-transform-origin: 100% 50%;
-          transform-origin: 100% 50%;
-  position: absolute;
-  background: transparent;
-  border: 15px solid #abc; }
-
-.wrapper .spinner {
-  border-radius: 100% 0 0 100% / 50% 0 0 50%;
-  z-index: 200;
-  border-right: none;
-  -webkit-animation: rota 0.5s linear forwards;
-          animation: rota 0.5s linear forwards; }
-
-.wrapper .filler {
-  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-  left: 50%;
-  opacity: 0;
-  z-index: 100;
-  animation: opa 0.5s steps(1, end) forwards reverse;
-  border-left: none; }
-
-.wrapper .mask {
-  width: 50%;
-  height: 100%;
-  border: 15px solid #eee;
-  border-radius: 100% 0 0 100% / 50% 0 0 50%;
-  border-right: none;
-  position: absolute;
-  opacity: 1;
-  z-index: 300;
-  -webkit-animation: opa 0.6s steps(1, end) forwards;
-          animation: opa 0.6s steps(1, end) forwards; }
-
-@-webkit-keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(324deg);
-            transform: rotate(324deg); } }
-
-@keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(324deg);
-            transform: rotate(324deg); } }
-
-@-webkit-keyframes opa {
-  0% {
-    opacity: 1; }
-  50%, 100% {
-    opacity: 0; } }
-
-@keyframes opa {
-  0% {
-    opacity: 1; }
-  50%, 100% {
-    opacity: 0; } }
-
-*, *:before, *:after {
+*, *::before, *::after {
   padding: 0;
   margin: 0;
   border: 0;
@@ -187,6 +81,44 @@ body {
           user-select: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+
+@-webkit-keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes rota {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes translate {
+  0% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px); }
+  50% {
+    -webkit-transform: translate3d(0px, -200px, 0px) rotate(-220deg);
+            transform: translate3d(0px, -200px, 0px) rotate(-220deg); }
+  100% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotate(-180deg);
+            transform: translate3d(0px, 0px, 0px) rotate(-180deg); } }
+
+@keyframes translate {
+  0% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px); }
+  50% {
+    -webkit-transform: translate3d(0px, -200px, 0px) rotate(-220deg);
+            transform: translate3d(0px, -200px, 0px) rotate(-220deg); }
+  100% {
+    -webkit-transform: translate3d(0px, 0px, 0px) rotate(-180deg);
+            transform: translate3d(0px, 0px, 0px) rotate(-180deg); } }
 
 html, body {
   width: 100%;
@@ -589,6 +521,12 @@ section {
     @media screen and (max-width: 767px) {
       .services__image {
         margin-bottom: 45px; } }
+    .services__image--dev:hover {
+      -webkit-animation: rota 10s infinite;
+              animation: rota 10s infinite; }
+    .services__image--rocket:hover {
+      -webkit-animation: translate 3s infinite alternate;
+              animation: translate 3s infinite alternate; }
   .services__heading {
     font-family: "tm_wbb";
     font-size: 24px;
