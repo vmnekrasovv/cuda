@@ -610,6 +610,44 @@ section {
 			margin-left: 0;
 		}
 
+		@import 'skills_animation';
+
+		&:nth-child(1),
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4) {
+			.skills__image:before {
+				content: "0";
+				display: inline-block;
+			}
+		}
+
+		&.active:nth-child(1) {
+			.skills__image:before {
+				animation: skills-1 1.5s cubic-bezier(0.67, 0.36, 0, 0.76) forwards;
+			}
+		}
+
+		&.active:nth-child(2) {
+			.skills__image:before {
+				animation: skills-2 1.5s cubic-bezier(0.67, 0.36, 0, 0.76) forwards;
+			}
+		}
+
+		&.active:nth-child(3) {
+			.skills__image:before {
+				animation: skills-3 1.5s cubic-bezier(0.67, 0.36, 0, 0.76) forwards;
+			}
+		}
+
+		&.active:nth-child(4) {
+			.skills__image:before {
+				animation: skills-4 1.5s cubic-bezier(0.67, 0.36, 0, 0.76) forwards;
+			}
+		}
+
+
+
 		@media screen and (max-width: 990px) {
 			width: 50%;
 			margin-left: 0px;
