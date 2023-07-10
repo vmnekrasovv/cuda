@@ -264,7 +264,7 @@ section {
 
 	} // top-line
 
-	&__menu {
+	&-menu {
 
 		@media screen and (max-width: 767px) {
 			position: fixed;
@@ -282,7 +282,7 @@ section {
 			top: 0;
 		}
 
-		&-list {
+		&__list {
 			display: flex;
 			position: relative;
 			z-index: 1;

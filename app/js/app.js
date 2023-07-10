@@ -3,7 +3,7 @@
 	/* document.addEventListener('DOMContentLoaded', function(){*/
 		
 	$(function(){
-		$('.header__menu-list').children('a').click(function(){
+		$('.header-menu__list').children('a').click(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 		});
 	});

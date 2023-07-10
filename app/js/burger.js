@@ -1,13 +1,14 @@
-$(function(){
-	
-	$('.burger').click(function(){
-		$('.burger, .header__menu').toggleClass('active');
-		$('body').toggleClass('lock');
+(function($){
+	$(document).ready(function(){
+
+		$('.burger').append("<span class='burger__element'></span>");
+
+		let btn = $('.burger, .header-menu');
+
+		btn.click(function(){
+			btn.toggleClass('active');
+			$('body').toggleClass('lock');
+		});
 
 	});
-
-	$('.header__menu').click(function(eventObject){
-		$('.burger, .header__menu').removeClass('active');
-		$('body').removeClass('lock');
-	});
-});
+})(jQuery);
