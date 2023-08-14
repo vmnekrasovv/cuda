@@ -31,6 +31,8 @@ let paths = {
 		dest: baseDir + '/images/dest',
 	},
 
+	dist: 'dist',
+
 	cssOutputName: 'app.min.css',
 	jsOutputName:  'app.min.js',
 
@@ -90,6 +92,19 @@ function cleanimg() {
 	return del('' + paths.images.dest + '/**/*', { force: true })
 }
 
+function buildcopy() {
+	return src([ 
+		'app/css/**/*.min.css',
+		'app/js/**/*.min.js',
+		'app/images/dest/**/*',
+		'app/**/*.html',
+		], { base: 'app' }) // Параметр "base" сохраняет структуру проекта при копировании
+	.pipe(dest('dist'))
+}
+
+function cleandist() {
+	return del('' + paths.dist + '/**/*', { force: true })
+}
 
 function startwatch() {
 	watch(baseDir  + '/**/' + preprocessor + '/**/*', styles);
@@ -104,4 +119,8 @@ exports.styles      = styles;
 exports.scripts     = scripts;
 exports.images      = images;
 exports.cleanimg    = cleanimg;
+
+exports.cleandist 	= cleandist;
+
+exports.build 		= series(cleandist, styles, scripts, images, buildcopy);
 exports.default     = parallel(images, styles, scripts, browsersync, startwatch);
