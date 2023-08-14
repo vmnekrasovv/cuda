@@ -14,7 +14,6 @@
 		"gulp-rsync": "^0.1.0",
 		"jquery": "^3.7.0",
 		"sass": "^1.63.6",
-
 		"gulp-imagemin": "^7.1.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
