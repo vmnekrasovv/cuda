@@ -33,6 +33,13 @@ let paths = {
 
 	dist: 'dist',
 
+	//deploy: {
+	//	hostname:    'username@yousite.com', // Deploy hostname
+	//	destination: 'yousite/public_html/', // Deploy destination
+	//	include:     [/* '*.htaccess' */], // Included files to deploy
+	//	exclude:     [ '**/Thumbs.db', '**/*.DS_Store' ], // Excluded files from deploy
+	//},
+
 	cssOutputName: 'app.min.css',
 	jsOutputName:  'app.min.js',
 
@@ -114,6 +121,21 @@ function startwatch() {
 	watch([baseDir + '/**/*.js', '!' + paths.scripts.dest + '/*.min.js'], scripts);
 }
 
+/*function deploy() {
+	return src(baseDir + '/')
+	.pipe(rsync({
+		root: baseDir + '/',
+		hostname: paths.deploy.hostname,
+		destination: paths.deploy.destination,
+		include: paths.deploy.include,
+		exclude: paths.deploy.exclude,
+		recursive: true,
+		archive: true,
+		silent: false,
+		compress: true
+	}))
+}*/
+
 exports.browsersync = browsersync;
 exports.assets      = series(cleanimg, styles, scripts, images);
 exports.styles      = styles;
@@ -122,6 +144,8 @@ exports.images      = images;
 exports.cleanimg    = cleanimg;
 
 exports.cleandist 	= cleandist;
+
+/*exports.deploy      = deploy;*/
 
 exports.build 		= series(cleandist, styles, scripts, images, buildcopy);
 exports.default     = parallel(images, styles, scripts, browsersync, startwatch);
